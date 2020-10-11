@@ -1,5 +1,4 @@
- 
- .data
+  .data
 v: .space 256
 w: .space 256
 x: .double 2.0
@@ -35,11 +34,11 @@ ldc1 F8, z(R0)
 loop2:
 ldc1 F2, 0(R1)
 ldc1 F4, 0(R2)
-mul.d F6, F2, F4
-add.d F8, F8, F6
 daddi R1, R1, 8
 daddi R2, R2, 8
 daddi R4, R4, 8
+mul.d F6, F2, F4
+add.d F8, F8, F6
 
 ldc1 F2, 4(R1)
 ldc1 F4, 4(R2)

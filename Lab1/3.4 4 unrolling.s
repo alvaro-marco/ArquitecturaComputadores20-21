@@ -34,11 +34,11 @@ ldc1 F8, z(R0)
 loop2:
 ldc1 F2, 0(R1)
 ldc1 F4, 0(R2)
-mul.d F6, F2, F4
-add.d F8, F8, F6
 daddi R1, R1, 8
 daddi R2, R2, 8
 daddi R4, R4, 8
+mul.d F6, F2, F4
+add.d F8, F8, F6
 
 ldc1 F2, 4(R1)
 ldc1 F4, 4(R2)
@@ -50,19 +50,19 @@ daddi R4, R4, 8
 
 ldc1 F2, 8(R1)
 ldc1 F4, 8(R2)
-mul.d F6, F2, F4
-add.d F8, F8, F6
 daddi R1, R1, 8
 daddi R2, R2, 8
 daddi R4, R4, 8
+mul.d F6, F2, F4
+add.d F8, F8, F6
 
 ldc1 F2, 12(R1)
 ldc1 F4, 12(R2)
-mul.d F6, F2, F4
-add.d F8, F8, F6
 daddi R1, R1, 8
 daddi R2, R2, 8
 daddi R4, R4, 8
+mul.d F6, F2, F4
+add.d F8, F8, F6
 bne R4, R3, loop2
 sdc1 F8, z(R0)
 syscall 0

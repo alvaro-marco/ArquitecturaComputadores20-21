@@ -1,0 +1,10 @@
+var xhr=null;function flipflop(id){if(document.getElementById(id).style.display=="none"){document.getElementById(id).style.display="block"}else{document.getElementById(id).style.display="none"}}
+function getXhr(){if(window.XMLHttpRequest){xhr=new XMLHttpRequest()}else if(window.ActiveXObject){try{xhr=new ActiveXObject("Msxml2.XMLHTTP")}catch(e){xhr=new ActiveXObject("Microsoft.XMLHTTP")}}else{alert("Error : your browser doesn't support XMLHTTPRequest...");xhr=!1}}
+function showdescr(description){alert(description)}
+function toggle(listname,elementname,toggler,courseid,isdefault,phpscript){getXhr();xhr.onreadystatechange=function(){if(xhr.readyState==4&&xhr.status==200){response=xhr.responseText;newdata=response.split("£µ£");docelementid=toggler+'tog-'+elementname;starzone=document.getElementById(docelementid);favzones=document.getElementsByClassName('block-catalogue-favorites');if(newdata[0]&&starzone){starzone.innerHTML=newdata[0]}
+if(newdata[1]&&favzones){nbfavzones=favzones.length;for(var i=0;i<nbfavzones;i++){favzones[i].innerHTML=newdata[1]}}}}
+xhr.open("POST",phpscript,!0);xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');args="list="+listname+"&element="+elementname+"&toggler="+toggler+"&courseid="+courseid+"&default="+isdefault;xhr.send(args)}
+function modaction(elementname,cmid){getXhr();xhr.onreadystatechange=function(){if(xhr.readyState==4&&xhr.status==200){response=xhr.responseText;docelementid='jsmod'+cmid;document.getElementById(docelementid).innerHTML=response}}
+xhr.open("POST","modaction.php",!0);xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');args="action="+elementname+"&cmid="+cmid;xhr.send(args)}
+function sectionaction(elementname,sectionid,finalpage){getXhr();xhr.onreadystatechange=function(){if(xhr.readyState==4&&xhr.status==200){window.location.href=finalpage}}
+xhr.open("POST","sectionaction.php",!0);xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');args="action="+elementname+"&sectionid="+sectionid;xhr.send(args)}
